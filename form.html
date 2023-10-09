@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script>
+        function validation()
+        {
+            var uname=document.getElementById("name").value;
+            var password=document.getElementById("email").value;
+            var regx=/@/
+            if(uname.trim()=="")
+            {
+                 document.getElementById("name").style.border="solid red 1px";
+                 document.getElementById("ulable").style.visibility="visible";
+                 return false;
+            }
+            else if(password.length<5)
+            {
+                alert("Password is too short");
+                return false;
+            }
+            else if(regx.test(password)==false)
+            {
+                alert("Email doesnot contain @ character");
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validation()" action="message.html" autocomplete="off">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <lable id="ulable" style="visibility: hidden; color:red;">Invalid</lable>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email"><br>
+            <br>
+            <label>
+                <input type="radio" vlaue="male" name="gender">Male
+                <input type="radio" vlaue="female" name="gender">Female
+            </label>
+            <br><br>
+            <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
